@@ -3,293 +3,941 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Anuj Mohan | Technical Writer</title>
 
+    <meta name="description"
+          content="Anuj Mohan - Technical Writer specializing in developer documentation, user guides, product documentation, APIs, and technical content.">
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #f7f8fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.7;
         }
 
-        header {
-            background: #172033;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        header h1 {
-            font-size: 46px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 20px;
-            color: #d7dce5;
-        }
+        /* NAVIGATION */
 
         nav {
-            background: white;
-            padding: 16px;
-            text-align: center;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            z-index: 10;
+            z-index: 1000;
+
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #e2e8f0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
         }
 
-        nav a {
-            color: #172033;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .nav-links {
+            display: flex;
+            gap: 28px;
         }
 
-        section {
-            max-width: 1000px;
+        .nav-links a {
+            font-size: 14px;
+            color: #475569;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1100px;
             margin: auto;
-            padding: 70px 20px;
+
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 8%;
         }
 
-        section h2 {
-            font-size: 30px;
-            margin-bottom: 25px;
-            color: #172033;
-        }
-
-        .intro {
-            font-size: 19px;
+        .hero-content {
             max-width: 800px;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+        .tag {
+            display: inline-block;
+
+            background: #eff6ff;
+            color: #2563eb;
+
+            padding: 7px 14px;
+            border-radius: 20px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-bottom: 22px;
         }
 
-        .skill {
-            background: white;
-            padding: 10px 16px;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            color: #0f172a;
+
+            margin-bottom: 20px;
         }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            font-size: 19px;
+
+            color: #64748b;
+
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 12px 22px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #cbd5e1;
+            background: white;
+            color: #334155;
+        }
+
+        .secondary:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 90px 8%;
+        }
+
+        .section-label {
+            color: #2563eb;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+        section h2 {
+            font-size: 36px;
+
+            color: #0f172a;
+
+            margin-bottom: 18px;
+        }
+
+        .section-intro {
+            color: #64748b;
+
+            max-width: 720px;
+
+            margin-bottom: 40px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #475569;
+        }
+
+        .highlight-box {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow: 0 8px 30px rgba(15,23,42,0.05);
+        }
+
+        .highlight-box h3 {
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .highlight-box ul {
+            padding-left: 20px;
+            color: #64748b;
+        }
+
+        /* EXPERTISE */
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
             gap: 20px;
         }
 
         .card {
             background: white;
-            padding: 25px;
+
+            padding: 28px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(15,23,42,0.08);
+
+            border-color: #bfdbfe;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
         }
 
         .card h3 {
-            margin-bottom: 10px;
-            color: #172033;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
+
+        .card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* WORK SAMPLES */
+
+        .sample {
+            display: flex;
+
+            justify-content: space-between;
+            gap: 30px;
+
+            background: white;
+
+            padding: 28px;
+
+            margin-bottom: 18px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            transition: 0.2s;
+        }
+
+        .sample:hover {
+            border-color: #93c5fd;
+        }
+
+        .sample h3 {
+            color: #0f172a;
+            margin-bottom: 7px;
+        }
+
+        .sample p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .sample-link {
+            color: #2563eb;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            align-self: center;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .skill {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 8px 14px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            color: #475569;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+
+            background: #0f172a;
+
+            color: white;
+
+            max-width: none;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+
+            max-width: 600px;
+
+            margin: 0 auto 25px;
+        }
+
+        .contact-button {
+            display: inline-block;
+
+            background: white;
+
+            color: #0f172a;
+
+            padding: 12px 22px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+        }
+
+        /* FOOTER */
 
         footer {
-            background: #172033;
-            color: white;
+            background: #020617;
+
+            color: #94a3b8;
+
             text-align: center;
-            padding: 30px 20px;
+
+            padding: 25px;
+
+            font-size: 14px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 34px;
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
             }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 70px 7%;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+
+            section h2 {
+                font-size: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sample {
+                flex-direction: column;
+            }
+
+            .sample-link {
+                align-self: flex-start;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>ANUJ MOHAN</h1>
-        <p>Technical Writer | Documentation Specialist</p>
-    </header>
+    <!-- NAVIGATION -->
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#tools">Tools</a>
-        <a href="#samples">Work Samples</a>
-        <a href="#contact">Contact</a>
+
+        <div class="logo">
+            ANUJ MOHAN
+        </div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#samples">Work Samples</a>
+            <a href="#tools">Tools</a>
+            <a href="#contact">Contact</a>
+        </div>
+
     </nav>
 
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                Technical Writer
+            </div>
+
+            <h1>
+                Turning complex technology
+                into <span>clear documentation.</span>
+            </h1>
+
+            <p>
+                I create developer-focused and user-focused documentation
+                that helps people understand, use, configure, and integrate
+                software products.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#samples" class="button primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="button secondary">
+                    Get in Touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
     <section id="about">
-        <h2>About Me</h2>
 
-        <p class="intro">
-            I am a Technical Writer with 6+ years of experience creating
-            clear, structured, and user-focused documentation for enterprise
-            software and technology products.
-        </p>
+        <div class="section-label">
+            About
+        </div>
 
-        <br>
+        <h2>
+            Technical communication with a product mindset.
+        </h2>
 
-        <p class="intro">
-            My experience includes developer documentation, user guides,
-            installation guides, release notes, API documentation, SOPs,
-            data dictionaries, and technical reference content. I work closely
-            with developers, product managers, QA teams, and subject matter
-            experts to transform complex technical information into
-            practical documentation.
-        </p>
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a Technical Writer with 6+ years of experience
+                    creating documentation for enterprise software and
+                    technology products.
+                </p>
+
+                <p>
+                    My work spans developer documentation, user guides,
+                    installation guides, release notes, API documentation,
+                    SOPs, data dictionaries, and technical reference content.
+                </p>
+
+                <p>
+                    I collaborate with developers, product managers, QA teams,
+                    business analysts, and subject matter experts to turn
+                    complex technical information into clear and useful
+                    documentation.
+                </p>
+
+            </div>
+
+            <div class="highlight-box">
+
+                <h3>
+                    What I focus on
+                </h3>
+
+                <ul>
+
+                    <li>Clear and task-oriented documentation</li>
+
+                    <li>Developer and API documentation</li>
+
+                    <li>Product and user documentation</li>
+
+                    <li>Content reuse and structured authoring</li>
+
+                    <li>Documentation quality and consistency</li>
+
+                    <li>AI-ready and searchable content</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
     </section>
+
+
+    <!-- EXPERTISE -->
 
     <section id="expertise">
-        <h2>Documentation Expertise</h2>
+
+        <div class="section-label">
+            Expertise
+        </div>
+
+        <h2>
+            Documentation I create
+        </h2>
+
+        <p class="section-intro">
+            From product onboarding to developer integration,
+            I create documentation for different audiences and stages
+            of the product lifecycle.
+        </p>
 
         <div class="cards">
 
-            <div class="card">
-                <h3>Developer Documentation</h3>
-                <p>
-                    Developer guides, integration guides, API documentation,
-                    code examples, configuration and troubleshooting content.
-                </p>
-            </div>
 
             <div class="card">
-                <h3>User Documentation</h3>
+
+                <div class="card-icon">
+                    UG
+                </div>
+
+                <h3>
+                    User Guides
+                </h3>
+
                 <p>
-                    User guides, administrator guides, installation guides,
-                    configuration guides and step-by-step procedures.
+                    Task-based documentation that helps users understand
+                    product features and complete common workflows.
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>API Documentation</h3>
-                <p>
-                    REST APIs, endpoints, authentication, request and response
-                    examples, parameters and API workflows.
-                </p>
-            </div>
 
             <div class="card">
-                <h3>Product Documentation</h3>
+
+                <div class="card-icon">
+                    DG
+                </div>
+
+                <h3>
+                    Developer Guides
+                </h3>
+
                 <p>
-                    Release notes, SOPs, product manuals, data dictionaries,
-                    technical references and knowledge-base content.
+                    Integration, configuration, architecture, workflows,
+                    code examples, and troubleshooting information for
+                    developers.
                 </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    API
+                </div>
+
+                <h3>
+                    API Documentation
+                </h3>
+
+                <p>
+                    REST API concepts, authentication, endpoints,
+                    parameters, request and response examples,
+                    and integration workflows.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    RN
+                </div>
+
+                <h3>
+                    Release Notes
+                </h3>
+
+                <p>
+                    Clear documentation of new features, enhancements,
+                    fixes, changes, and important product information.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    IG
+                </div>
+
+                <h3>
+                    Installation Guides
+                </h3>
+
+                <p>
+                    Prerequisites, installation procedures,
+                    configuration steps, verification, and troubleshooting.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    DD
+                </div>
+
+                <h3>
+                    Data Documentation
+                </h3>
+
+                <p>
+                    Data dictionaries, field definitions, data types,
+                    relationships, business rules, and technical references.
+                </p>
+
             </div>
 
         </div>
+
     </section>
 
-    <section id="tools">
-        <h2>Tools & Technologies</h2>
 
-        <div class="skills">
-            <span class="skill">MadCap Flare</span>
-            <span class="skill">FrameMaker</span>
-            <span class="skill">XMetaL</span>
-            <span class="skill">DITA</span>
-            <span class="skill">Markdown</span>
-            <span class="skill">HTML/CSS</span>
-            <span class="skill">Git</span>
-            <span class="skill">GitHub</span>
-            <span class="skill">Confluence</span>
-            <span class="skill">Postman</span>
-            <span class="skill">Swagger / OpenAPI</span>
-            <span class="skill">SQL</span>
-            <span class="skill">JSON</span>
-            <span class="skill">XML</span>
-            <span class="skill">AWS</span>
-            <span class="skill">Azure</span>
-            <span class="skill">Snowflake</span>
-        </div>
-    </section>
+    <!-- WORK SAMPLES -->
 
     <section id="samples">
-        <h2>Featured Work Samples</h2>
 
-        <div class="cards">
+        <div class="section-label">
+            Portfolio
+        </div>
 
-            <div class="card">
-                <h3>REST API Integration Guide</h3>
+        <h2>
+            Featured Work Samples
+        </h2>
+
+        <p class="section-intro">
+            Selected sample documentation demonstrating how I approach
+            different types of technical content.
+        </p>
+
+
+        <div class="sample">
+
+            <div>
+
+                <h3>
+                    REST API Integration Guide
+                </h3>
+
                 <p>
-                    A sample developer guide covering API authentication,
-                    endpoints, request parameters, responses and integration
-                    workflows.
+                    Authentication, endpoints, request parameters,
+                    responses, error handling, and integration workflow.
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>Product User Guide</h3>
-                <p>
-                    A structured user guide demonstrating task-based
-                    documentation, prerequisites, procedures and
-                    troubleshooting.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Installation Guide</h3>
-                <p>
-                    A sample installation and configuration guide covering
-                    prerequisites, setup, verification and common issues.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Release Notes</h3>
-                <p>
-                    A sample release-notes document covering new features,
-                    enhancements, fixes and important product changes.
-                </p>
+            <div class="sample-link">
+                Coming Soon →
             </div>
 
         </div>
+
+
+        <div class="sample">
+
+            <div>
+
+                <h3>
+                    Product User Guide
+                </h3>
+
+                <p>
+                    Task-based user documentation covering prerequisites,
+                    procedures, configuration, and troubleshooting.
+                </p>
+
+            </div>
+
+            <div class="sample-link">
+                Coming Soon →
+            </div>
+
+        </div>
+
+
+        <div class="sample">
+
+            <div>
+
+                <h3>
+                    Installation & Configuration Guide
+                </h3>
+
+                <p>
+                    A structured guide covering system requirements,
+                    installation, configuration, verification, and common
+                    issues.
+                </p>
+
+            </div>
+
+            <div class="sample-link">
+                Coming Soon →
+            </div>
+
+        </div>
+
+
+        <div class="sample">
+
+            <div>
+
+                <h3>
+                    Release Notes
+                </h3>
+
+                <p>
+                    A concise example demonstrating feature descriptions,
+                    enhancements, fixes, and user-impact information.
+                </p>
+
+            </div>
+
+            <div class="sample-link">
+                Coming Soon →
+            </div>
+
+        </div>
+
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
 
-        <p class="intro">
-            Interested in discussing technical documentation, content
-            development, or collaboration?
+    <!-- TOOLS -->
+
+    <section id="tools">
+
+        <div class="section-label">
+            Toolkit
+        </div>
+
+        <h2>
+            Tools & Technologies
+        </h2>
+
+        <p class="section-intro">
+            Documentation tools, markup languages, developer tools,
+            databases, and cloud technologies I have worked with.
         </p>
 
-        <br>
 
-        <p>
-            <strong>Email:</strong> Add your professional email here
-        </p>
+        <div class="skills">
 
-        <p>
-            <strong>LinkedIn:</strong> Add your LinkedIn profile here
-        </p>
+            <span class="skill">MadCap Flare</span>
+
+            <span class="skill">FrameMaker</span>
+
+            <span class="skill">XMetaL</span>
+
+            <span class="skill">DITA</span>
+
+            <span class="skill">Markdown</span>
+
+            <span class="skill">HTML/CSS</span>
+
+            <span class="skill">Git</span>
+
+            <span class="skill">GitHub</span>
+
+            <span class="skill">Confluence</span>
+
+            <span class="skill">Postman</span>
+
+            <span class="skill">Swagger / OpenAPI</span>
+
+            <span class="skill">SQL</span>
+
+            <span class="skill">JSON</span>
+
+            <span class="skill">XML</span>
+
+            <span class="skill">AWS</span>
+
+            <span class="skill">Azure</span>
+
+            <span class="skill">Snowflake</span>
+
+        </div>
 
     </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <div class="section-label">
+            Contact
+        </div>
+
+        <h2>
+            Let's connect
+        </h2>
+
+        <p>
+            If you're looking for a Technical Writer who can work across
+            product, developer, and user documentation, I'd be happy to
+            connect.
+        </p>
+
+        <a href="mailto:YOUR-EMAIL@example.com"
+           class="contact-button">
+
+            Email Me
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
 
     <footer>
-        <p>© 2026 Anuj Mohan | Technical Writer</p>
+
+        © 2026 Anuj Mohan · Technical Writer
+
     </footer>
+
 
 </body>
 </html>
