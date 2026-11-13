@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Transaction API | Developer Documentation</title>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    color: #263445;
+    background: #fff;
+    line-height: 1.7;
+}
+
+header {
+    background: #14243a;
+    color: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header strong { font-size: 19px; }
+header span { color: #b9c9dc; font-size: 13px; }
+
+.layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 850px);
+    max-width: 1250px;
+    margin: auto;
+    gap: 45px;
+    padding: 35px 25px;
+}
+
+aside {
+    border-right: 1px solid #e5eaf0;
+    padding-right: 20px;
+}
+
+aside h3 {
+    font-size: 12px;
+    color: #8492a5;
+    text-transform: uppercase;
+    margin: 15px 0 8px;
+}
+
+aside a {
+    display: block;
+    text-decoration: none;
+    color: #526277;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+aside a:hover {
+    background: #edf4ff;
+    color: #2563eb;
+}
+
+main { min-width: 0; }
+
+h1 {
+    font-size: 34px;
+    color: #14243a;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 23px;
+    color: #14243a;
+    margin: 40px 0 12px;
+    border-bottom: 1px solid #e8edf3;
+    padding-bottom: 8px;
+}
+
+h3 { margin: 22px 0 10px; }
+
+p { margin: 12px 0; color: #536174; }
+
+.badge {
+    display: inline-block;
+    background: #e9f8ef;
+    color: #16804a;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+code {
+    background: #f0f3f7;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+pre {
+    background: #14243a;
+    color: #e3edf9;
+    padding: 18px;
+    border-radius: 7px;
+    overflow-x: auto;
+    margin: 14px 0;
+    font-size: 13px;
+}
+
+.endpoint {
+    border: 1px solid #e1e7ef;
+    padding: 15px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+.method {
+    color: #16804a;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.note {
+    background: #edf5ff;
+    border-left: 4px solid #3985df;
+    padding: 14px;
+    margin: 18px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    padding: 11px;
+}
+
+th { background: #f1f5f9; }
+
+footer {
+    border-top: 1px solid #e5eaf0;
+    padding: 25px;
+    text-align: center;
+    color: #8793a3;
+    font-size: 13px;
+}
+
+@media(max-width: 750px) {
+    .layout { grid-template-columns: 1fr; }
+    aside {
+        border-right: none;
+        border-bottom: 1px solid #e5eaf0;
+        padding-bottom: 20px;
+    }
+    h1 { font-size: 28px; }
+    header span { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <strong>Cloud Transaction API</strong>
+    <span>Developer Documentation · Version 1.0</span>
+</header>
+
+<div class="layout">
+
+<aside>
+    <h3>Getting Started</h3>
+    <a href="#overview">API Overview</a>
+    <a href="#base-url">Base URL</a>
+    <a href="#authentication">Authentication</a>
+
+    <h3>API Reference</h3>
+    <a href="#create">Create Transaction</a>
+    <a href="#retrieve">Get Transaction</a>
+    <a href="#update">Update Transaction</a>
+    <a href="#delete">Delete Transaction</a>
+
+    <h3>Resources</h3>
+    <a href="#errors">Error Handling</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+</aside>
+
+<main>
+
+<h1 id="overview">Cloud Transaction API</h1>
+
+<span class="badge">Version 1.0</span>
+
+<p>
+Welcome to the Cloud Transaction API documentation. This guide explains
+how developers can integrate with the Cloud Transaction platform to
+create, retrieve, update, and delete transaction records.
+</p>
+
+<div class="note">
+<strong>Note:</strong> This is a fictional API created as a technical
+writing portfolio sample. All URLs, credentials, and examples are
+illustrative.
+</div>
+
+<h2>API Overview</h2>
+
+<p>
+The Cloud Transaction API provides a REST-based interface for managing
+transaction records. Applications can exchange data with the platform
+using HTTP requests and JSON-formatted payloads.
+</p>
+
+<h3>Key Features</h3>
+<ul>
+<li>Create new transaction records.</li>
+<li>Retrieve transaction details using a unique ID.</li>
+<li>Update existing transaction information.</li>
+<li>Delete transaction records.</li>
+<li>Receive structured error responses.</li>
+</ul>
+
+<h2 id="base-url">Base URL</h2>
+
+<p>Use the following base URL for API requests:</p>
+
+<pre>https://api.example.com/v1</pre>
+
+<p>All endpoints described in this guide are relative to this base URL.</p>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>
+The API uses Bearer token authentication. Include a valid access token
+in the Authorization header of every request.
+</p>
+
+<pre>Authorization: Bearer YOUR_ACCESS_TOKEN
+Content-Type: application/json</pre>
+
+<div class="note">
+Keep your access token confidential. Do not expose tokens in
+public repositories, browser code, or application logs.
+</div>
+
+<h2 id="create">Create Transaction</h2>
+
+<div class="endpoint">
+<span class="method">POST</span>
+<code>/transactions</code>
+</div>
+
+<p>Creates a new transaction record.</p>
+
+<h3>Request Body</h3>
+
+<pre>{
+  "customerId": "CUST-1001",
+  "amount": 2500.00,
+  "currency": "INR",
+  "description": "Sample payment"
+}</pre>
+
+<h3>Successful Response</h3>
+
+<pre>{
+  "transactionId": "TXN-50001",
+  "status": "CREATED",
+  "amount": 2500.00,
+  "currency": "INR"
+}</pre>
+
+<p><strong>Expected status code:</strong> <code>201 Created</code></p>
+
+<h2 id="retrieve">Get Transaction</h2>
+
+<div class="endpoint">
+<span class="method">GET</span>
+<code>/transactions/{transactionId}</code>
+</div>
+
+<p>Retrieves the details of a transaction using its unique ID.</p>
+
+<h3>Example Request</h3>
+
+<pre>GET /v1/transactions/TXN-50001</pre>
+
+<h3>Successful Response</h3>
+
+<pre>{
+  "transactionId": "TXN-50001",
+  "customerId": "CUST-1001",
+  "amount": 2500.00,
+  "currency": "INR",
+  "status": "COMPLETED"
+}</pre>
+
+<p><strong>Expected status code:</strong> <code>200 OK</code></p>
+
+<h2 id="update">Update Transaction</h2>
+
+<div class="endpoint">
+<span class="method">PUT</span>
+<code>/transactions/{transactionId}</code>
+</div>
+
+<p>Updates the details of an existing transaction.</p>
+
+<h3>Example Request</h3>
+
+<pre>{
+  "description": "Updated payment description"
+}</pre>
+
+<p><strong>Expected status code:</strong> <code>200 OK</code></p>
+
+<h2 id="delete">Delete Transaction</h2>
+
+<div class="endpoint">
+<span style="color:#dc6b42;font-weight:bold;">DELETE</span>
+<code>/transactions/{transactionId}</code>
+</div>
+
+<p>Deletes the specified transaction record.</p>
+
+<p><strong>Expected status code:</strong> <code>204 No Content</code></p>
+
+<h2 id="errors">Error Handling</h2>
+
+<p>
+The API returns standard HTTP status codes along with a JSON error
+object when a request cannot be processed.
+</p>
+
+<table>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+<th>Recommended Action</th>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>Validate the request parameters and body.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>Check the access token.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>Verify the user's permissions.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>Verify the transaction ID.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>Retry later or contact support.</td>
+</tr>
+</table>
+
+<h3>Error Response Example</h3>
+
+<pre>{
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "The request contains invalid parameters."
+  }
+}</pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3>Authentication Failed</h3>
+<p>
+Verify that the access token is valid, has not expired, and is included
+in the Authorization header.
+</p>
+
+<h3>Transaction Not Found</h3>
+<p>
+Confirm that the transaction ID is correct and that the record exists.
+</p>
+
+<h3>Invalid Request</h3>
+<p>
+Check the JSON structure, required fields, parameter names, and data types.
+</p>
+
+</main>
+</div>
+
+<footer>
+    Cloud Transaction API · Sample Developer Documentation ·
+    © 2026 Anuj Mohan
+</footer>
+
+</body>
+</html>
